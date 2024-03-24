@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
@@ -8,7 +9,7 @@ public class Coin : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
 
     public void Init(AudioSource audioSource) =>
-        _audioSource = audioSource;
+        _audioSource = audioSource ?? throw new ArgumentNullException(nameof(audioSource));
 
     private void OnTriggerEnter2D(Collider2D other)
     {

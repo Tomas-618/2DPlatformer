@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -13,6 +14,9 @@ public class PlayerSprite : MonoBehaviour
 
     private void Flip(SpriteRenderer spriteRenderer)
     {
+        if (spriteRenderer == null)
+            throw new ArgumentNullException(nameof(spriteRenderer));
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
             spriteRenderer.flipX = false;
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
