@@ -1,22 +1,7 @@
-using System;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : Pickup
 {
-    [SerializeField, Range(0, 1)] private float _collectingSoundVolume;
-
-    [SerializeField] private AudioClip _clip;
-    [SerializeField] private AudioSource _audioSource;
-
-    public void Init(AudioSource audioSource) =>
-        _audioSource = audioSource ?? throw new ArgumentNullException(nameof(audioSource));
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.GetComponent<Player>())
-        {
-            _audioSource.PlayOneShot(_clip, _collectingSoundVolume);
-            Destroy(gameObject);
-        }
-    }
+    protected override bool IsConditionTrue(Collider2D collision) =>
+        collision.GetComponent<Player>();
 }

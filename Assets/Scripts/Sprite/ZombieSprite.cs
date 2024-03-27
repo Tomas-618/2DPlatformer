@@ -14,9 +14,12 @@ public class ZombieSprite : MonoBehaviour
         _plane = new Plane(Vector2.left, _transform.position);
     }
 
-    public void SetTarget(in Vector2 position)
-    {
+    private void Update() =>
         _plane.SetNormalAndPosition(Vector2.left, _transform.position);
+
+    public void SetTarget(in Vector2 position) =>
         _spriteRenderer.flipX = _plane.GetSide(position);
-    }
+
+    public bool IsOnPositiveSideOfPlane(in Vector2 position) =>
+        _plane.GetSide(position) == _spriteRenderer.flipX;
 }
