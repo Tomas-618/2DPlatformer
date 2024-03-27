@@ -13,17 +13,17 @@ public abstract class Pickup<T> : Initializable<AudioSource>
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (IsConditionTrue(collision, out T behaviour))
+        if (IsConditionTrueOnTriggerEnter(collision, out T behaviour))
         {
             _audioSource.PlayOneShot(_clip, _collectingSoundVolume);
             Destroy(gameObject);
-            DoSomething(behaviour);
+            DoActionOnTriggerEnter(behaviour);
         }
     }
 
-    protected abstract void DoSomething(T behaviour);
+    protected abstract void DoActionOnTriggerEnter(T behaviour);
 
-    protected abstract bool IsConditionTrue(Collider2D collision, out T behaviour);
+    protected abstract bool IsConditionTrueOnTriggerEnter(Collider2D collision, out T behaviour);
 }
 
 public abstract class Pickup : Initializable<AudioSource>
@@ -38,12 +38,12 @@ public abstract class Pickup : Initializable<AudioSource>
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (IsConditionTrue(collision))
+        if (IsConditionTrueOnTriggerEnter(collision))
         {
             _audioSource.PlayOneShot(_clip, _collectingSoundVolume);
             Destroy(gameObject);
         }
     }
 
-    protected abstract bool IsConditionTrue(Collider2D collision);
+    protected abstract bool IsConditionTrueOnTriggerEnter(Collider2D collision);
 }

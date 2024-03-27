@@ -24,11 +24,11 @@ public class Spawner : MonoBehaviour
         if (_minObjectsCount > _spawnPointsPosition.Count)
             throw new System.InvalidOperationException();
 
-        int objectsCount = Random.Range(_minObjectsCount, _spawnPointsPosition.Count);
+        int objectsCount = Random.Range(_minObjectsCount, _spawnPointsPosition.Count + 1);
 
         for (int i = 0; i < objectsCount; i++)
         {
-            int spawnPointIndex = Random.Range(0, _spawnPointsPosition.Count - 1);
+            int spawnPointIndex = Random.Range(0, _spawnPointsPosition.Count);
 
             Initializable<AudioSource> example = Instantiate(_prefab, _spawnPointsPosition[spawnPointIndex], Quaternion.identity);
 
