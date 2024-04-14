@@ -5,11 +5,30 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField] private UnityEvent _died;
-    [SerializeField] private UnityEvent _damaged;
+    [SerializeField] private UnityEvent<float> _damaged;
+    [SerializeField] private UnityEvent<float> _onHealing;
 
     public const int MaxValue = 100;
 
     private float _value;
+
+    public event UnityAction Died
+    {
+        add => _died.AddListener(value);
+        remove => _died.RemoveListener(value);
+    }
+
+    public event UnityAction<float> Damaged
+    {
+        add => _damaged.AddListener(value);
+        remove => _damaged.RemoveListener(value);
+    }
+
+    public event UnityAction<float> OnHealing
+    {
+        add => _onHealing.AddListener(value);
+        remove => _onHealing.RemoveListener(value);
+    }
 
     public float Value
     {
@@ -32,6 +51,8 @@ public class Health : MonoBehaviour
         }
     }
 
+    public int MaxValueInfo => MaxValue;
+
     private void Start() =>
         _value = MaxValue;
 
@@ -41,6 +62,7 @@ public class Health : MonoBehaviour
             throw new ArgumentOutOfRangeException(value.ToString());
 
         Value += value;
+        _onHealing.Invoke(Value);
     }
 
     public void TakeDamage(in float value)
@@ -51,6 +73,6 @@ public class Health : MonoBehaviour
         Value -= value;
 
         if (Value > 0)
-            _damaged.Invoke();
+            _damaged.Invoke(Value);
     }
 }
