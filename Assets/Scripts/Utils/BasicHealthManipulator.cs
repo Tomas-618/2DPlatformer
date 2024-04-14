@@ -7,11 +7,25 @@ public class BasicHealthManipulator : MonoBehaviour
     [SerializeField] private TMP_Text _healingValue;
     [SerializeField] private Health _target;
 
-    public void Attack() =>
-        _target.TakeDamage(GetValue(_damage.text));
+    public void Attack()
+    {
+        float damage = GetValue(_damage.text);
 
-    public void Heal() =>
-        _target.Increase(GetValue(_healingValue.text));
+        if (damage == 0)
+            return;
+
+        _target.TakeDamage(damage);
+    }
+
+    public void Heal()
+    {
+        float healingValue = GetValue(_healingValue.text);
+
+        if (healingValue == 0)
+            return;
+
+        _target.Increase(healingValue);
+    }
 
     private float GetValue(string text)
     {
