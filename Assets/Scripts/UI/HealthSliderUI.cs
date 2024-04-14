@@ -1,15 +1,17 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
 public class HealthSliderUI : MonoBehaviour
 {
     [SerializeField, Min(0)] private float _changingDeltaValue;
 
-    [SerializeField] private Slider _view;
-
     private Coroutine _coroutine;
+    private Slider _view;
+
+    private void Start() =>
+        _view = GetComponent<Slider>();
 
     public void SetValue(float value)
     {
