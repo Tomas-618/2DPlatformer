@@ -26,7 +26,7 @@ public class HealthTextUI : MonoBehaviour
         _text = GetComponent<TMP_Text>();
 
     private void SetValue(float health) =>
-        _text.text = $"{health}/{_model.MaxValueInfo}";
+        _text.text = $"{health}/{_model.MaxValue}";
 
     private void SetDieValue() =>
         SetValue(0);

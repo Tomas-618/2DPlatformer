@@ -4,11 +4,11 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    public readonly int MaxValue = 100;
+
     [SerializeField] private UnityEvent _died;
     [SerializeField] private UnityEvent<float> _damaged;
     [SerializeField] private UnityEvent<float> _onHealing;
-
-    public const int MaxValue = 100;
 
     private float _value;
 
@@ -36,22 +36,13 @@ public class Health : MonoBehaviour
         private set
         {
             if (value >= MaxValue)
-            {
                 _value = MaxValue;
-            }
             else if (value <= 0)
-            {
                 _value = 0;
-                _died.Invoke();
-            }
             else
-            {
                 _value = value;
-            }
         }
     }
-
-    public int MaxValueInfo => MaxValue;
 
     private void Start() =>
         _value = MaxValue;
@@ -72,7 +63,13 @@ public class Health : MonoBehaviour
 
         Value -= value;
 
-        if (Value > 0)
-            _damaged.Invoke(Value);
+        if (Value <= 0)
+        {
+            _died.Invoke();
+
+            return;
+        }
+
+        _damaged.Invoke(Value);
     }
 }
