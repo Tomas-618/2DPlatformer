@@ -2,22 +2,22 @@ using UnityEngine;
 
 public abstract class HealthEventsHandler : MonoBehaviour
 {
-    [SerializeField] private Health _model;
+    [SerializeField] private IReadOnlyHealthEvents _events;
 
-    public Health Model => _model;
+    public IReadOnlyHealthEvents Events => _events;
 
     private void OnEnable()
     {
-        _model.Died += OnDie;
-        _model.Damaged += OnTakingDamage;
-        _model.OnHealing += OnHealing;
+        _events.Died += OnDie;
+        _events.Damaged += OnTakingDamage;
+        _events.OnHealing += OnHealing;
     }
 
     private void OnDisable()
     {
-        _model.Died -= OnDie;
-        _model.Damaged -= OnTakingDamage;
-        _model.OnHealing -= OnHealing;
+        _events.Died -= OnDie;
+        _events.Damaged -= OnTakingDamage;
+        _events.OnHealing -= OnHealing;
     }
 
     protected virtual void OnDie() =>

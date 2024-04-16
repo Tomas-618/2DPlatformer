@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public abstract class BasicHealthUI : HealthEventsHandler
+﻿public abstract class BasicHealthUI : HealthEventsHandler
 {
     protected override void OnDie() =>
         SetValue(0);
