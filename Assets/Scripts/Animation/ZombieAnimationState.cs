@@ -57,6 +57,12 @@ public class ZombieAnimationState : BasicAnimationState
     protected override float GetSpeed() =>
         _movement.Speed;
 
+    protected override void OnDie()
+    {
+        base.OnDie();
+        Destroy(_movement);
+    }
+
     protected override void SetAttackingParameterByBool()
     {
         if (IsGrounded)
