@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443e4fb1b19ff7e42b51beba8fccc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 1385038120721443227}
+  _movement: {fileID: 1385038120721443227}
 --- !u!114 &2767882248622660268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ MonoBehaviour:
   _attackDelay: 0.4
   _damageDelay: 0.6
   _groundChecker: {fileID: 7182797769571214527}
-  _entity: {fileID: 1385038120721443227}
+  _movement: {fileID: 1385038120721443227}
   _attacker: {fileID: 2767882248622660268}
 --- !u!114 &6225591882328261250
 MonoBehaviour:

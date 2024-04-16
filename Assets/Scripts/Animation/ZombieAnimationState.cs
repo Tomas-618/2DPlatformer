@@ -7,7 +7,7 @@ public class ZombieAnimationState : BasicAnimationState
     [SerializeField, Min(0)] private float _damageDelay;
 
     [SerializeField] private HitChecker _groundChecker;
-    [SerializeField] private ZombieMovement _entity;
+    [SerializeField] private ZombieMovement _movement;
     [SerializeField] private Attacker _attacker;
 
     private float _currentAttackDelay;
@@ -55,7 +55,7 @@ public class ZombieAnimationState : BasicAnimationState
         ZombieAnimatorParams.Speed;
 
     protected override float GetSpeed() =>
-        _entity.Speed;
+        _movement.Speed;
 
     protected override void SetAttackingParameterByBool()
     {
@@ -66,7 +66,7 @@ public class ZombieAnimationState : BasicAnimationState
             if (_attacker.HitInfo)
             {
                 _currentAttackDelay = AttackDelay;
-                _entity.enabled = false;
+                DisableMovement();
 
                 return;
             }
@@ -75,7 +75,7 @@ public class ZombieAnimationState : BasicAnimationState
             _currentAttackDelay = Mathf.Clamp(_currentAttackDelay, 0, AttackDelay);
 
             if (_currentAttackDelay <= 0)
-                _entity.enabled = true;
+                EnableMovement();
         }
     }
 
@@ -83,10 +83,16 @@ public class ZombieAnimationState : BasicAnimationState
     {
         WaitForSeconds wait = new WaitForSeconds(delay);
 
-        _entity.enabled = false;
+        DisableMovement();
 
         yield return wait;
 
-        _entity.enabled = true;
+        EnableMovement();
     }
+
+    private void EnableMovement() =>
+        _movement.enabled = true;
+
+    private void DisableMovement() =>
+        _movement.enabled = false;
 }

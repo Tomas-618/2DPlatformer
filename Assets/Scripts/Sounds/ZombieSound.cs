@@ -3,13 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(MovementSound))]
 public class ZombieSound : MonoBehaviour
 {
-    [SerializeField] private ZombieMovement _entity;
+    [SerializeField] private ZombieMovement _movement;
 
-    private MovementSound _movement;
+    private MovementSound _sound;
 
     private void Awake() =>
-        _movement = GetComponent<MovementSound>();
+        _sound = GetComponent<MovementSound>();
 
     private void Update() =>
-        _movement.Play(_entity.IsRunning, _entity.IsStanding);
+        _sound.Play(_movement.IsRunning, _movement.IsStanding);
 }
