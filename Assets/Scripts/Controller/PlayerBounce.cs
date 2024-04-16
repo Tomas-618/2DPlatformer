@@ -1,13 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerBounce : MonoBehaviour
+[RequireComponent(typeof(Physics2DOwner))]
+public class PlayerBounce : HealthEventsHandler
 {
     [SerializeField, Min(0)] private float _jumpForce;
 
     [SerializeField] private HitChecker _groundChecker;
 
-    private Rigidbody2D _rigidbody2D;
+    private Physics2DOwner _physics2DOwner;
 
     public bool IsGrounded => _groundChecker.HitInfo;
 
@@ -15,7 +15,7 @@ public class PlayerBounce : MonoBehaviour
         _jumpForce = 6;
 
     private void Awake() =>
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _physics2DOwner = GetComponent<Physics2DOwner>();
 
     private void Update() =>
         Jump();
@@ -23,6 +23,6 @@ public class PlayerBounce : MonoBehaviour
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded)
-            _rigidbody2D.AddForce(Vector3.up * _jumpForce, ForceMode2D.Impulse);
+            _physics2DOwner.Rigidbody2DInfo.AddForce(Vector3.up * _jumpForce, ForceMode2D.Impulse);
     }
 }

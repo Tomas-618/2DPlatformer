@@ -1,16 +1,13 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 public class ZombieAnimationState : BasicAnimationState
 {
     [SerializeField, Min(0)] private float _damageDelay;
 
-    [SerializeField] private UnityEvent _onMovementEnable;
-    [SerializeField] private UnityEvent _onMovementDisable;
     [SerializeField] private HitChecker _groundChecker;
-    [SerializeField] private Zombie _entity;
+    [SerializeField] private ZombieMovement _entity;
     [SerializeField] private Attacker _attacker;
 
     private float _currentAttackDelay;
@@ -69,7 +66,7 @@ public class ZombieAnimationState : BasicAnimationState
             if (_attacker.HitInfo)
             {
                 _currentAttackDelay = AttackDelay;
-                _onMovementDisable.Invoke();
+                _entity.enabled = false;
 
                 return;
             }
@@ -78,7 +75,7 @@ public class ZombieAnimationState : BasicAnimationState
             _currentAttackDelay = Mathf.Clamp(_currentAttackDelay, 0, AttackDelay);
 
             if (_currentAttackDelay <= 0)
-                _onMovementEnable.Invoke();
+                _entity.enabled = true;
         }
     }
 
@@ -86,10 +83,10 @@ public class ZombieAnimationState : BasicAnimationState
     {
         WaitForSeconds wait = new WaitForSeconds(delay);
 
-        _onMovementDisable.Invoke();
+        _entity.enabled = false;
 
         yield return wait;
 
-        _onMovementEnable.Invoke();
+        _entity.enabled = true;
     }
 }

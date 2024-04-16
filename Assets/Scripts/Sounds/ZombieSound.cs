@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(MovementSound))]
 public class ZombieSound : MonoBehaviour
 {
-    [SerializeField] private Zombie _entity;
+    [SerializeField] private ZombieMovement _entity;
 
     private MovementSound _movement;
 

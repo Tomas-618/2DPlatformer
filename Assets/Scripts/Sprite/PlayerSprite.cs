@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class PlayerSprite : MonoBehaviour
+public class PlayerSprite : HealthEventsHandler
 {
     private SpriteRenderer _spriteRenderer;
 

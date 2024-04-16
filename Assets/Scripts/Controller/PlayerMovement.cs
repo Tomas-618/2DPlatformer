@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+[RequireComponent(typeof(Physics2DOwner))]
+public class PlayerMovement : HealthEventsHandler
 {
     [SerializeField, Min(0)] private float _moveSpeed;
     [SerializeField, Min(0)] private float _runSpeed;
@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private HitChecker _groundChecker;
     [SerializeField] private ObstacleChecker _obstacleChecker;
 
-    private Rigidbody2D _rigidbody2D;
+    private Physics2DOwner _physics2DOwner;
 
     public float Speed => Input.GetKey(KeyCode.LeftShift) ? _runSpeed : _moveSpeed;
 
@@ -28,17 +28,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Awake() =>
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _physics2DOwner = GetComponent<Physics2DOwner>();
 
     public void OnDisable() =>
-        _rigidbody2D.velocity = Vector2.zero;
+        _physics2DOwner.Rigidbody2DInfo.velocity = Vector2.zero;
 
     private void FixedUpdate() =>
         Move();
 
     private void Move()
     {
-        Vector2 velocity = _rigidbody2D.velocity;
+        Vector2 velocity = _physics2DOwner.Rigidbody2DInfo.velocity;
 
         velocity.x = Input.GetAxisRaw(AxisNames.Horizontal) * Speed;
 
@@ -52,6 +52,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        _rigidbody2D.velocity = velocity;
+        _physics2DOwner.Rigidbody2DInfo.velocity = velocity;
     }
 }

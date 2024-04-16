@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public abstract class BasicAnimationState : MonoBehaviour
+public abstract class BasicAnimationState : HealthEventsHandler
 {
     [SerializeField, Min(0)] private float _attackDelay;
 
@@ -65,6 +65,15 @@ public abstract class BasicAnimationState : MonoBehaviour
 
     protected void SetMovingParameter() =>
         _animator.SetFloat(SetMovingFloat(), GetSpeed());
+
+    protected override void OnDie()
+    {
+        SetDieParameter();
+        base.OnDie();
+    }
+
+    protected override void OnTakingDamage(float health) =>
+        SetDamageParameter();
 
     private void SetGroundingParameter() =>
         _animator.SetBool(SetGroundingBool(), IsGrounding());

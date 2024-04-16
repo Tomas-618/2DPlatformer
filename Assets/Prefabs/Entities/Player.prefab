@@ -105,6 +105,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fdd92de6124bc4db463c9608ed0fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2289246139200148647
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +133,7 @@ GameObject:
   - component: {fileID: 3387226258922662069}
   - component: {fileID: 5577685300495166321}
   - component: {fileID: 7420185346874351669}
-  - component: {fileID: 8910717762822324410}
+  - component: {fileID: 9093896104673322399}
   m_Layer: 3
   m_Name: Render
   m_TagString: Untagged
@@ -205,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5134c482d96e32e499969a3b51052ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 8393398342017257494}
 --- !u!95 &5577685300495166321
 Animator:
   serializedVersion: 5
@@ -238,15 +254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b0819434459bd47a3cfb7eb88c1fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 8393398342017257494}
   _attackDelay: 0.8
-  _onMovementEnable:
-    m_PersistentCalls:
-      m_Calls: []
-  _onMovementDisable:
-    m_PersistentCalls:
-      m_Calls: []
   _movement: {fileID: 5551287011367002612}
---- !u!114 &8910717762822324410
+--- !u!114 &9093896104673322399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,14 +266,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2289246139200148647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccaafd45daa507e42adf7e36a0900683, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e3709d2d29bd6f409e335562c6b4d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 20
-  _distance: 1.2
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 128
+  _entity: {fileID: 2618693611466617962}
 --- !u!1 &6804832909055081150
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +282,7 @@ GameObject:
   - component: {fileID: 7040465093953364837}
   - component: {fileID: 8695473340270361673}
   - component: {fileID: 2872935557329146290}
+  - component: {fileID: 528367560605496590}
   - component: {fileID: 8393398342017257494}
   - component: {fileID: 5551287011367002612}
   - component: {fileID: 6910669017333953851}
@@ -284,6 +292,8 @@ GameObject:
   - component: {fileID: 2234958118777308016}
   - component: {fileID: 8801209558044233212}
   - component: {fileID: 3755492633210017158}
+  - component: {fileID: 2618693611466617962}
+  - component: {fileID: 3722767449382643477}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -392,6 +402,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b618eb86b8d02814b8915cacc880c37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &528367560605496590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804832909055081150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf60d02e3f59e343b565197b96584aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 8393398342017257494}
+  _audioSource: {fileID: 6929323774808926788}
+  _onDieLayer:
+    serializedVersion: 2
+    m_Bits: 2
 --- !u!114 &8393398342017257494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,130 +433,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _died:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6804832909055081150}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: set_layer
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8695473340270361673}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
-        m_MethodName: set_isKinematic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 7040465093953364837}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7420185346874351669}
-        m_TargetAssemblyTypeName: PlayerAnimationState, Assembly-CSharp
-        m_MethodName: SetDieParameter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2872935557329146290}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5551287011367002612}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6910669017333953851}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3387226258922662069}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: ReloadScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _damaged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7420185346874351669}
-        m_TargetAssemblyTypeName: PlayerAnimationState, Assembly-CSharp
-        m_MethodName: SetDamageParameter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &5551287011367002612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b90dd08dfb029408a7b40203717e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 8393398342017257494}
   _moveSpeed: 5
   _runSpeed: 10
   _groundChecker: {fileID: 3704398654535829830}
@@ -558,6 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d41e46d96e80f44286f9c55f31897b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 8393398342017257494}
   _jumpForce: 8
   _groundChecker: {fileID: 3704398654535829830}
 --- !u!114 &3704398654535829830
@@ -752,5 +661,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01a9f1320a470f9438d3dfedd069ffd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2618693611466617962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804832909055081150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccaafd45daa507e42adf7e36a0900683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 20
+  _distance: 1.2
+  _spriteRenderer: {fileID: 8056022207517091160}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &3722767449382643477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804832909055081150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec3b4d69b8bc394a8d276b960ed0598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class Zombie : MonoBehaviour
+[RequireComponent(typeof(Physics2DOwner))]
+public class ZombieMovement : MonoBehaviour
 {
     [SerializeField, Min(0)] private float _walkingSpeed;
     [SerializeField, Min(0)] private float _runningSpeed;
@@ -12,7 +12,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private FieldOfView _view;
     [SerializeField] private ZombieSprite _sprite;
 
-    private Rigidbody2D _rigidbody2D;
+    private Physics2DOwner _physics2DOwner;
     private int _currentArrivePointIndex;
 
     public IReadOnlyList<Transform> ArrivePointsPositions => _arrivePoints
@@ -26,10 +26,10 @@ public class Zombie : MonoBehaviour
     public bool IsRunning => Speed == _runningSpeed;
 
     private void Awake() =>
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _physics2DOwner = GetComponent<Physics2DOwner>();
 
     private void OnDisable() =>
-        _rigidbody2D.velocity = Vector2.zero;
+        _physics2DOwner.Rigidbody2DInfo.velocity = Vector2.zero;
 
     private void Start() =>
         _sprite.SetTarget(ArrivePointsPositions[_currentArrivePointIndex].position);
@@ -63,9 +63,10 @@ public class Zombie : MonoBehaviour
 
     private void Move(in Vector2 position, in float speed)
     {
-        IsStanding = _rigidbody2D.position == position;
+        IsStanding = _physics2DOwner.Rigidbody2DInfo.position == position;
 
         _sprite.SetTarget(position);
-        _rigidbody2D.position = Vector2.MoveTowards(_rigidbody2D.position, position, speed * Time.deltaTime);
+        _physics2DOwner.Rigidbody2DInfo.position = Vector2.MoveTowards(_physics2DOwner.Rigidbody2DInfo.position,
+            position, speed * Time.deltaTime);
     }
 }
