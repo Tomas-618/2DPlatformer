@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf60d02e3f59e343b565197b96584aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _model: {fileID: 4918149727519563562}
+  _health: {fileID: 4918149727519563562}
   _audioSource: {fileID: 8074404087708470392}
   _onDieLayer:
     serializedVersion: 2
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee9a1951287c5f46a76f9b3c4a0c9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _model: {fileID: 4918149727519563562}
+  _health: {fileID: 4918149727519563562}
   _attackDelay: 0.4
   _damageDelay: 0.6
   _groundChecker: {fileID: 7182797769571214527}
