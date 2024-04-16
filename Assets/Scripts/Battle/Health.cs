@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IReadOnlyHealth, IReadOnlyHealthEvents
 {
-    public readonly int MaxValue = 100;
+    private readonly float _maxValue = 100;
 
     private float _value;
 
@@ -13,13 +13,15 @@ public class Health : MonoBehaviour
 
     public event Action<float> OnHealing;
 
+    public float MaxValue => _maxValue;
+
     public float Value
     {
         get => _value;
         private set
         {
-            if (value >= MaxValue)
-                _value = MaxValue;
+            if (value >= _maxValue)
+                _value = _maxValue;
             else if (value <= 0)
                 _value = 0;
             else
@@ -28,7 +30,7 @@ public class Health : MonoBehaviour
     }
 
     private void Start() =>
-        _value = MaxValue;
+        _value = _maxValue;
 
     public void Increase(in float value)
     {
