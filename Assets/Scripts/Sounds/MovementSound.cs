@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent( typeof(FootStepsSound))]
 public class MovementSound : MonoBehaviour
 {
-    private FootStepsSound _footStepsSound;
-
     [SerializeField] private HitChecker _groundChecker;
+
+    private FootStepsSound _footStepsSound;
 
     public bool IsGrounded => _groundChecker.HitInfo;
 
