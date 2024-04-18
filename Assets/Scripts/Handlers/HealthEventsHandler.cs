@@ -16,6 +16,9 @@ public abstract class HealthEventsHandler : MonoBehaviour
 
     private void OnDisable()
     {
+        if (Events == null)
+            return;
+
         Events.Died -= OnDie;
         Events.Damaged -= OnTakingDamage;
         Events.OnHealing -= OnHealing;

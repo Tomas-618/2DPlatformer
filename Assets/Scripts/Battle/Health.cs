@@ -50,11 +50,11 @@ public class Health : MonoBehaviour, IReadOnlyHealth, IReadOnlyHealthEvents
 
         if (Value <= 0)
         {
-            Died.Invoke();
+            Died?.Invoke();
 
             return;
         }
 
-        Damaged.Invoke(Value);
+        Damaged?.Invoke(Value);
     }
 }
