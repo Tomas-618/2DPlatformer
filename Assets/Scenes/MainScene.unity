@@ -19459,6 +19459,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _events:
     _underlyingValue: {fileID: 8393398340390010272}
+  _model:
+    _underlyingValue: {fileID: 8393398340390010272}
 --- !u!114 &1799802663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20024,7 +20026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _events:
-    _underlyingValue: {fileID: 0}
+    _underlyingValue: {fileID: 8393398340390010272}
   _delay: 1.5
 --- !u!4 &1889275079
 Transform:
