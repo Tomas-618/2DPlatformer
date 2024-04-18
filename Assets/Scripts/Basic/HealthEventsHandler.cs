@@ -2,22 +2,24 @@ using UnityEngine;
 
 public abstract class HealthEventsHandler : MonoBehaviour
 {
-    [SerializeField, SerializeReference] private IReadOnlyHealthEvents _healthEvents;
+    [SerializeField] private HealthMediator _mediator;
 
-    public IReadOnlyHealthEvents HealthEvents => _healthEvents;
+    public HealthMediator Mediator => _mediator;
+
+    public IReadOnlyHealthEvents Events => _mediator.HealthInfo;
 
     private void OnEnable()
     {
-        _healthEvents.Died += OnDie;
-        _healthEvents.Damaged += OnTakingDamage;
-        _healthEvents.OnHealing += OnHealing;
+        Events.Died += OnDie;
+        Events.Damaged += OnTakingDamage;
+        Events.OnHealing += OnHealing;
     }
 
     private void OnDisable()
     {
-        _healthEvents.Died -= OnDie;
-        _healthEvents.Damaged -= OnTakingDamage;
-        _healthEvents.OnHealing -= OnHealing;
+        Events.Died -= OnDie;
+        Events.Damaged -= OnTakingDamage;
+        Events.OnHealing -= OnHealing;
     }
 
     protected virtual void OnDie() =>

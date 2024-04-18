@@ -2385,7 +2385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16e1dd0932a90a4e995fc312c706b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 1661349333}
+  _mediator: {fileID: 1661349303}
 --- !u!1 &263611853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3695,7 +3695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5cf1e30f95cdf2468d0afcb4e982fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 1661349333}
+  _mediator: {fileID: 1661349303}
   _changingDeltaValue: 0.1
 --- !u!114 &453611963
 MonoBehaviour:
@@ -18746,10 +18746,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 528367560605496590, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
-      propertyPath: _model
-      value: 
-      objectReference: {fileID: 1661349333}
     - target: {fileID: 2042121358401790136, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -18794,35 +18790,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3387226258922662069, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
-      propertyPath: _model
-      value: 
-      objectReference: {fileID: 1661349333}
     - target: {fileID: 4948242642938428618, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
       propertyPath: _onChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 856525869}
-    - target: {fileID: 5551287011367002612, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
-      propertyPath: _model
-      value: 
-      objectReference: {fileID: 1661349333}
     - target: {fileID: 6804832909055081150, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6910669017333953851, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
-      propertyPath: _model
-      value: 
-      objectReference: {fileID: 1661349333}
-    - target: {fileID: 7420185346874351669, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
-      propertyPath: _model
-      value: 
-      objectReference: {fileID: 1661349333}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
+--- !u!114 &1661349303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 549275814146497784, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
+  m_PrefabInstance: {fileID: 1661349302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2b76f0749892541966ae7870a5f0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1661349324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2042121358401790136, guid: 02965942069db714d9da8c11f2820ff3, type: 3}
@@ -19556,7 +19547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640304f277849ed43a9c6865e7ab522f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 1661349333}
+  _mediator: {fileID: 1661349303}
 --- !u!114 &1799802663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20121,7 +20112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56ab999287fa834b865ae445e0ab610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 1661349333}
+  _mediator: {fileID: 0}
   _delay: 1.5
 --- !u!4 &1889275079
 Transform:
