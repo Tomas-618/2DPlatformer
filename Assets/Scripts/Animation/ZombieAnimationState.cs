@@ -10,6 +10,7 @@ public class ZombieAnimationState : BasicAnimationState
     [SerializeField] private ZombieMovement _movement;
     [SerializeField] private Attacker _attacker;
 
+    private Coroutine _coroutine;
     private float _currentAttackDelay;
 
     public bool IsGrounded => _groundChecker.HitInfo;
@@ -30,7 +31,7 @@ public class ZombieAnimationState : BasicAnimationState
     public override void SetDamageParameter()
     {
         base.SetDamageParameter();
-        StartCoroutine(WaitBeforeCanWalk(_damageDelay));
+        _coroutine = StartCoroutine(WaitBeforeCanWalk(_damageDelay));
     }
 
     protected override int SetDieTrigger() =>
@@ -65,7 +66,7 @@ public class ZombieAnimationState : BasicAnimationState
 
     protected override void SetAttackingParameterByBool()
     {
-        if (IsGrounded)
+        if (IsGrounded && _coroutine == null)
         {
             base.SetAttackingParameterByBool();
 
@@ -94,6 +95,8 @@ public class ZombieAnimationState : BasicAnimationState
         yield return wait;
 
         EnableMovement();
+
+        _coroutine = null;
     }
 
     private void EnableMovement() =>

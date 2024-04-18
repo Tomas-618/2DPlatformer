@@ -1,12 +1,11 @@
+using AYellowpaper;
 using UnityEngine;
 
 public abstract class HealthEventsHandler : MonoBehaviour
 {
-    [SerializeField] private HealthMediator _mediator;
+    [SerializeField] private InterfaceReference<IReadOnlyHealthEvents, MonoBehaviour> _events;
 
-    public HealthMediator Mediator => _mediator;
-
-    public IReadOnlyHealthEvents Events => _mediator.HealthInfo;
+    public IReadOnlyHealthEvents Events => _events.Value;
 
     private void OnEnable()
     {
