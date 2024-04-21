@@ -29,10 +29,8 @@ public class ZombieAnimationState : BasicAnimationState
 
     public override void SetDamageParameter()
     {
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
-
         base.SetDamageParameter();
+        StopCoroutine();
         _coroutine = StartCoroutine(WaitBeforeCanWalk(_damageDelay));
     }
 
@@ -63,7 +61,7 @@ public class ZombieAnimationState : BasicAnimationState
     protected override void OnDie()
     {
         base.OnDie();
-        StopCoroutine(_coroutine);
+        StopCoroutine();
         Destroy(_movement);
     }
 
@@ -105,6 +103,12 @@ public class ZombieAnimationState : BasicAnimationState
         EnableMovement();
 
         _coroutine = null;
+    }
+
+    private void StopCoroutine()
+    {
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
     }
 
     private void EnableMovement() =>
