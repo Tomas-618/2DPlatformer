@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class ZombieAnimationState : BasicAnimationState
 {
     [SerializeField, Min(0)] private float _damageDelay;
@@ -11,7 +11,6 @@ public class ZombieAnimationState : BasicAnimationState
     [SerializeField] private Attacker _attacker;
 
     private Coroutine _coroutine;
-    private float _currentAttackDelay;
 
     public bool IsGrounded => _groundChecker.HitInfo;
 
@@ -30,6 +29,9 @@ public class ZombieAnimationState : BasicAnimationState
 
     public override void SetDamageParameter()
     {
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
         base.SetDamageParameter();
         _coroutine = StartCoroutine(WaitBeforeCanWalk(_damageDelay));
     }
@@ -61,29 +63,19 @@ public class ZombieAnimationState : BasicAnimationState
     protected override void OnDie()
     {
         base.OnDie();
+        StopCoroutine(_coroutine);
         Destroy(_movement);
     }
 
     protected override void SetAttackingParameterByBool()
     {
-        if (IsGrounded && _coroutine == null)
-        {
-            base.SetAttackingParameterByBool();
+        if (IsGrounded == false || _coroutine != null)
+            return;
 
-            if (_attacker.HitInfo)
-            {
-                _currentAttackDelay = AttackDelay;
-                DisableMovement();
+        if (IsAttacking())
+            _coroutine = StartCoroutine(WaitBeforeCanWalk(() => IsAttacking(), AttackDelay));
 
-                return;
-            }
-
-            _currentAttackDelay -= Time.deltaTime;
-            _currentAttackDelay = Mathf.Clamp(_currentAttackDelay, 0, AttackDelay);
-
-            if (_currentAttackDelay <= 0)
-                EnableMovement();
-        }
+        base.SetAttackingParameterByBool();
     }
 
     private IEnumerator WaitBeforeCanWalk(float delay)
@@ -91,6 +83,22 @@ public class ZombieAnimationState : BasicAnimationState
         WaitForSeconds wait = new WaitForSeconds(delay);
 
         DisableMovement();
+
+        yield return wait;
+
+        EnableMovement();
+
+        _coroutine = null;
+    }
+
+    private IEnumerator WaitBeforeCanWalk(Func<bool> condition, float delay)
+    {
+        WaitForSeconds wait = new WaitForSeconds(delay);
+
+        DisableMovement();
+
+        while (condition.Invoke())
+            yield return null;
 
         yield return wait;
 

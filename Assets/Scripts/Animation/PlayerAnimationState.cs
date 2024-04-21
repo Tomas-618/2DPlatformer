@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class PlayerAnimationState : BasicAnimationState
 {
     [SerializeField] private PlayerMovement _movement;
