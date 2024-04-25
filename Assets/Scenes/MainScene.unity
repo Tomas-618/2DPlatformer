@@ -151,6 +151,14 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 1593414684}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17
@@ -637,6 +645,26 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 263611854}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17
@@ -3036,6 +3064,26 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 1247433438}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17
@@ -6665,6 +6713,26 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 1261090406}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17
@@ -7361,6 +7429,14 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 1432183726}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17
@@ -13450,6 +13526,26 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 398774701}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17
@@ -15106,6 +15202,26 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 1222990606}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17
@@ -16401,6 +16517,14 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 774058853}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17
@@ -16989,6 +17113,26 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 1669042805}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278939715146261779, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17
@@ -52957,6 +53101,14 @@ PrefabInstance:
       propertyPath: _arrivePoints.Array.data[1]
       value: 
       objectReference: {fileID: 575857441}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067190070614020031, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3487867963306353763, guid: c6c24ae5622257841b2ba9e88219c888, type: 3}
       propertyPath: _layerMask.m_Bits
       value: 17

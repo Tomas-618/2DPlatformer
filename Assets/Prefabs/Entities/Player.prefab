@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 2563357256588379970}
   - component: {fileID: 5654559880005771945}
   - component: {fileID: 3161277793431033327}
-  - component: {fileID: 9041694327565760693}
+  - component: {fileID: 4426761461277678186}
   m_Layer: 3
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -272,7 +272,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2804616000532778589}
   m_Enabled: 1
---- !u!114 &9041694327565760693
+--- !u!114 &4426761461277678186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,24 +281,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2804616000532778589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9fdd92de6124bc4db463c9608ed0fb4, type: 3}
+  m_Script: {fileID: 11500000, guid: 964362592ae0efd44992cf080442fdd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &5067865576685530467
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,8 +829,9 @@ GameObject:
   - component: {fileID: 1078384063527702303}
   - component: {fileID: 2709701077905383623}
   - component: {fileID: 5875470291169840860}
+  - component: {fileID: 6861234694216033848}
   m_Layer: 3
-  m_Name: Slider
+  m_Name: SmoothHealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,7 +910,19 @@ MonoBehaviour:
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CanvasGroupAlphaChanger, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5875470291169840860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,7 +937,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _events:
     _underlyingValue: {fileID: 7919931881173696113}
-  _changingDeltaValue: 0.1
+  _changingDeltaValue: 0.15
+--- !u!225 &6861234694216033848
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7604984570598371068}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7988782788793604648
 GameObject:
   m_ObjectHideFlags: 0
