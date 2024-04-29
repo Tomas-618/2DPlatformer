@@ -5,7 +5,7 @@ using UnityEngine;
 public class FootStepsSound : MonoBehaviour
 {
     [SerializeField] private SurfaceStepsSound[] _stepsSounds;
-    [SerializeField] private HitChecker _groundChecker;
+    [SerializeField] private HitCheckerByBoxCasting _groundChecker;
     
     private AudioSource _audioSource;
     private SurfaceType _currentSurfaceType;

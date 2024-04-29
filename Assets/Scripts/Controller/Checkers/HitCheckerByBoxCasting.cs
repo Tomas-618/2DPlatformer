@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HitChecker : MonoBehaviour
+public class HitCheckerByBoxCasting : MonoBehaviour
 {
     [SerializeField, Min(0)] private float _offsetPositionY;
 

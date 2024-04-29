@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent( typeof(FootStepsSound))]
 public class MovementSound : MonoBehaviour
 {
-    [SerializeField] private HitChecker _groundChecker;
+    [SerializeField] private HitCheckerByBoxCasting _groundChecker;
 
     private FootStepsSound _footStepsSound;
 

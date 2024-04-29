@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Health : MonoBehaviour, IReadOnlyHealth, IReadOnlyHealthEvents
+public class Health : MonoBehaviour, IReadOnlyHealth, IReadOnlyHealthEvents, IDamagable, IIncreaser
 {
     private readonly float _maxValue = 100;
 
@@ -39,6 +39,11 @@ public class Health : MonoBehaviour, IReadOnlyHealth, IReadOnlyHealthEvents
 
         Value += value;
         OnHealing?.Invoke(Value);
+    }
+
+    public void Poison(in float duration)
+    {
+
     }
 
     public void TakeDamage(in float value)

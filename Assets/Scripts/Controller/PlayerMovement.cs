@@ -6,7 +6,7 @@ public class PlayerMovement : HealthEventsHandler
     [SerializeField, Min(0)] private float _moveSpeed;
     [SerializeField, Min(0)] private float _runSpeed;
 
-    [SerializeField] private HitChecker _groundChecker;
+    [SerializeField] private HitCheckerByBoxCasting _groundChecker;
     [SerializeField] private ObstacleChecker _obstacleChecker;
 
     private Physics2DOwner _physics2DOwner;

@@ -22,7 +22,7 @@ public class Attacker : MonoBehaviour
         if (HitInfo == false)
             return;
 
-        if (HitInfo.transform.TryGetComponent(out Health target))
+        if (HitInfo.transform.TryGetComponent(out IDamagable target))
             target.TakeDamage(_damage);
     }
 }

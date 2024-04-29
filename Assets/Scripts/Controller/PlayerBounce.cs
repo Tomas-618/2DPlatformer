@@ -5,7 +5,7 @@ public class PlayerBounce : HealthEventsHandler
 {
     [SerializeField, Min(0)] private float _jumpForce;
 
-    [SerializeField] private HitChecker _groundChecker;
+    [SerializeField] private HitCheckerByBoxCasting _groundChecker;
 
     private Physics2DOwner _physics2DOwner;
 

@@ -6,7 +6,7 @@ public class ZombieAnimationState : BasicAnimationState
 {
     [SerializeField, Min(0)] private float _damageDelay;
 
-    [SerializeField] private HitChecker _groundChecker;
+    [SerializeField] private HitCheckerByBoxCasting _groundChecker;
     [SerializeField] private ZombieMovement _movement;
     [SerializeField] private Attacker _attacker;
 
