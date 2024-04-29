@@ -39,6 +39,10 @@ public class ZombieMovement : MonoBehaviour
         if (_view.IsSeeTarget)
         {
             Speed = _runningSpeed;
+
+            if (_view.HitInfo == false)
+                return;
+
             MoveToTarget(_view.HitInfo.transform.position, Speed);
 
             return;

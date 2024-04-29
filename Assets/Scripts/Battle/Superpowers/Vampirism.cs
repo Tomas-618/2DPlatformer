@@ -4,21 +4,19 @@ using AYellowpaper;
 
 public class Vampirism : MonoBehaviour
 {
-    private readonly List<Health> _targets = new List<Health>();
-
     [SerializeField, Min(0)] private float _delay;
     [SerializeField, Min(0)] private float _value;
 
     [SerializeField] private InterfaceReference<IIncreaser, MonoBehaviour> _owner;
+    [SerializeField] private HitCheckerByCollider2D _checker;
 
     private float _currentDelay;
     private bool _isActive;
 
+    public List<Health> Targets => _checker.Targets;
+
     private void Reset() =>
         _delay = 6;
-
-    private void Start() =>
-        _currentDelay = 0;
 
     private void Update() =>
         Activate();
@@ -35,8 +33,8 @@ public class Vampirism : MonoBehaviour
 
         while (_isActive)
         {
-            _targets.ForEach(target => target.TakeDamage(_value));
-            _owner.Value.Increase(_value * _targets.Count);
+            Targets.ForEach(target => target.TakeDamage(_value));
+            _owner.Value.Increase(_value * Targets.Count);
 
             _currentDelay += Time.deltaTime;
             _isActive = _currentDelay < _delay;

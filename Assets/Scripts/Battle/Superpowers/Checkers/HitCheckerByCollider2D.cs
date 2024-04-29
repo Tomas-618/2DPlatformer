@@ -6,7 +6,9 @@ public class HitCheckerByCollider2D : MonoBehaviour
     private readonly List<Health> _targets = new List<Health>();
 
     [SerializeField] private LayerMask _layerMask;
-    
+
+    public List<Health> Targets => _targets;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Health health) == false)
