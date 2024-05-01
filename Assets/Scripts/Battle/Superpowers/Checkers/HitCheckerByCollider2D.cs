@@ -3,18 +3,16 @@ using UnityEngine;
 
 public class HitCheckerByCollider2D : MonoBehaviour
 {
-    private readonly List<Health> _targets = new List<Health>();
+    private readonly List<IDamagable> _targets = new List<IDamagable>();
 
-    [SerializeField] private LayerMask _layerMask;
-
-    public List<Health> Targets => _targets;
+    public List<IDamagable> Targets => _targets;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Health health) == false)
             return;
 
-        if (health.gameObject.layer != _layerMask)
+        if (collision.GetComponent<Zombie>() == false)
             return;
 
         _targets.Add(health);
@@ -25,7 +23,7 @@ public class HitCheckerByCollider2D : MonoBehaviour
         if (collision.TryGetComponent(out Health health) == false)
             return;
 
-        if (health.gameObject.layer != _layerMask)
+        if (collision.GetComponent<Zombie>() == false)
             return;
 
         _targets.Remove(health);

@@ -696,7 +696,7 @@ MonoBehaviour:
   _offsetPositionY: 1.076
   _layerMask:
     serializedVersion: 2
-    m_Bits: 17
+    m_Bits: 336
   _size: {x: 1.1, y: 0.1}
 --- !u!114 &2767882248622660268
 MonoBehaviour:
@@ -733,7 +733,7 @@ MonoBehaviour:
   _distance: 20
   _layerMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 329
 --- !u!1 &6630462683503042795
 GameObject:
   m_ObjectHideFlags: 0
