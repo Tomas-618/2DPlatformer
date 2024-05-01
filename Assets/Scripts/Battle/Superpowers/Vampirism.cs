@@ -69,7 +69,17 @@ public class Vampirism : MonoBehaviour
 
     private void DamageTargets(in float value)
     {
+        int previousCount = Targets.Count;
+
         for (int i = 0; i < Targets.Count; i++)
+        {
             Targets[i].TakeDamage(value);
+
+            if (Targets.Count != previousCount)
+            {
+                i--;
+                previousCount--;
+            }
+        }
     }
 }
