@@ -41,11 +41,6 @@ public class Health : MonoBehaviour, IReadOnlyHealth, IReadOnlyHealthEvents, IDa
         OnHealing?.Invoke(Value);
     }
 
-    public void Poison(in float duration)
-    {
-
-    }
-
     public void TakeDamage(in float value)
     {
         if (value <= 0)
