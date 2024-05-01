@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class Vampirism : MonoBehaviour
     [SerializeField] private HitCheckerByCollider2D _checker;
 
     private Coroutine _coroutine;
+
+    public event Action<bool> ChangedState;
 
     public IReadOnlyList<IDamagable> Targets => _checker.Targets;
 
@@ -48,13 +51,15 @@ public class Vampirism : MonoBehaviour
 
         int iterationsCount = (int)(delay / deltaDelay);
 
+        ChangedState?.Invoke(true);
+
         for (int i = 0; i < iterationsCount; i++)
         {
             DamageTargets(value);
 
             if (Targets.Count == 0)
             {
-                _coroutine = null;
+                Disactivate();
 
                 yield break;
             }
@@ -64,7 +69,7 @@ public class Vampirism : MonoBehaviour
             yield return wait;
         }
 
-        _coroutine = null;
+        Disactivate();
     }
 
     private void DamageTargets(in float value)
@@ -81,5 +86,11 @@ public class Vampirism : MonoBehaviour
                 previousCount--;
             }
         }
+    }
+
+    private void Disactivate()
+    {
+        _coroutine = null;
+        ChangedState?.Invoke(false);
     }
 }
