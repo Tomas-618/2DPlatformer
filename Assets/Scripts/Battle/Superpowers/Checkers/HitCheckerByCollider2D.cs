@@ -5,7 +5,7 @@ public class HitCheckerByCollider2D : MonoBehaviour
 {
     private readonly List<IDamagable> _targets = new List<IDamagable>();
 
-    public List<IDamagable> Targets => _targets;
+    public IReadOnlyList<IDamagable> Targets => _targets;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

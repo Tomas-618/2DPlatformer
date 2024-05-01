@@ -14,7 +14,7 @@ public class Vampirism : MonoBehaviour
 
     private Coroutine _coroutine;
 
-    public List<IDamagable> Targets => _checker.Targets;
+    public IReadOnlyList<IDamagable> Targets => _checker.Targets;
 
     private void OnValidate()
     {
@@ -50,6 +50,8 @@ public class Vampirism : MonoBehaviour
 
         for (int i = 0; i < iterationsCount; i++)
         {
+            DamageTargets(value);
+
             if (Targets.Count == 0)
             {
                 _coroutine = null;
@@ -57,12 +59,17 @@ public class Vampirism : MonoBehaviour
                 yield break;
             }
 
-            Targets.ForEach(target => target.TakeDamage(value));
             _owner.Value.Increase(value * Targets.Count);
 
             yield return wait;
         }
 
         _coroutine = null;
+    }
+
+    private void DamageTargets(in float value)
+    {
+        for (int i = 0; i < Targets.Count; i++)
+            Targets[i].TakeDamage(value);
     }
 }
